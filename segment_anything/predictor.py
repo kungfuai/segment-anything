@@ -59,7 +59,6 @@ class SamPredictor:
 
         self.set_torch_image(input_image_torch, image.shape[:2])
 
-    @torch.no_grad()
     def set_torch_image(
         self,
         transformed_image: torch.Tensor,
@@ -160,12 +159,12 @@ class SamPredictor:
             return_logits=return_logits,
         )
 
-        masks_np = masks[0].detach().cpu().numpy()
-        iou_predictions_np = iou_predictions[0].detach().cpu().numpy()
-        low_res_masks_np = low_res_masks[0].detach().cpu().numpy()
-        return masks_np, iou_predictions_np, low_res_masks_np
+        #masks_np = masks[0].detach().cpu().numpy()
+        #iou_predictions_np = iou_predictions[0].detach().cpu().numpy()
+        #low_res_masks_np = low_res_masks[0].detach().cpu().numpy()
+        #return masks_np, iou_predictions_np, low_res_masks_np
+        return masks, iou_predictions, low_res_masks
 
-    @torch.no_grad()
     def predict_torch(
         self,
         point_coords: Optional[torch.Tensor],
