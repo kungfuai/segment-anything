@@ -17,7 +17,7 @@ class DatasetBuilder(torch.utils.data.Dataset):
             idx = idx.tolist()
 
         img_name = os.path.join(self.root_dir, self.images[idx])
-        mask_name = os.path.join(self.mask_dir, self.images[idx][:3]+"_label.PNG")
+        mask_name = os.path.join(self.mask_dir, self.images[idx][:-4]+"_label.PNG")
 
         image = np.asarray(Image.open(img_name))
         mask = np.asarray(Image.open(mask_name))

@@ -11,7 +11,7 @@ class TrainingConfig(BaseConfig):
     )
 
     train_split: float = Field(
-        default = 0.85,
+        default = 0.9,
         description ="Percent of data in training split."
     )
 
@@ -26,16 +26,16 @@ class TrainingConfig(BaseConfig):
     )
 
     pos_weight: PositiveInt = Field(
-        default=60,
+        default=2,
         description="Weight for positive class in criterion (due to class imbalance)."
     )
 
     root_dir: str = Field(
-        default='data/Images',
+        default='a360_data/Images',
         description="Directory containing image data."
     ) 
     
     mask_dir: str = Field(
-        default='data/Masks',
+        default='a360_data/Masks',
         description="Directory containing masks data."
     )
